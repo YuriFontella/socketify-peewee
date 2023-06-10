@@ -5,6 +5,8 @@ from config import Database
 
 db = Database()
 
+database = db.connect()
+
 app = App()
 
 def home(res, req):
@@ -15,7 +17,7 @@ def home(res, req):
 
 def execute(res, req):
     query = Users.select().dicts().limit(100)
-    users = db.execute(query)
+    users = database.execute(query)
     
     users = [user for user in query]
 
