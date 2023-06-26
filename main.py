@@ -10,7 +10,7 @@ database = db.connect()
 app = App()
 
 def home(res, req):
-    users = Users.select(Users.name).dicts().limit(100)
+    users = Users.select(Users.name).dicts().limit(1000)
     users = [user for user in users]
 
     res.end(users)
